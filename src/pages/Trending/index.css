@@ -1,0 +1,15 @@
+.trending-container {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 240px);
+    justify-content: center;
+    gap: 24px;
+    padding: 24px 0;
+}
+
+.heading {
+    text-align: center;
+    padding-top: 24px;
+    color: #fff;
+    letter-spacing: 2px;
+}

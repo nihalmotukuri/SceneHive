@@ -6,6 +6,8 @@ header {
     z-index: 999;
     display: flex;
     justify-content: center;
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid grey;
 }
 
 nav {

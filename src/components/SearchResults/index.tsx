@@ -1,10 +1,15 @@
-import type { SearchResultsProps } from '../../types.ts'
+import type { SearchResultsProps } from '../../types'
+import MovieCard from '../MovieCard/index.tsx'
 import './index.css'
 
-const SearchResults = ({ searchResults }: SearchResultsProps) => {
+const SearchResults = ({ searchResults, onSearch }: SearchResultsProps) => {
+    const searchText = onSearch ? "No results found" : ""
+
     return (
-        <div>
-            {searchResults.map(movie => <div>{movie.title}</div>)}
+        <div className="movies-container">
+            {searchResults.length > 0
+            ? searchResults.map(movie => <MovieCard key={movie.id} movie={movie} />)
+            : <p>{searchText}</p>}
         </div>
     )
 }

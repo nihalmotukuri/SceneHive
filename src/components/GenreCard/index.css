@@ -1,0 +1,41 @@
+.genre-card {
+    position: relative;
+    border: 1px solid rgb(255, 255, 255);
+    width: 240px;
+    height: 360px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.genre-card img {
+    width: 100%;
+    position: absolute;
+    z-index: 1;
+    transition: .3s;
+}
+
+.overlay {
+    position: absolute;
+    z-index: 2;
+    height: 100%;
+    width: 100%;
+    backdrop-filter: blur(4px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.overlay h3 {
+    color: rgba(255, 255, 255, 0.326);
+    font-size: 30px;
+}
+
+.overlay:hover h3 {
+    color: rgba(255, 255, 255, 0.699);
+}
+
+.genre-card:hover img {
+    scale: 1.1;
+}

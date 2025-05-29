@@ -1,0 +1,15 @@
+.genre-section {
+    padding-top: 64px;
+}
+
+.genre-container {
+    max-width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 240px);
+    gap: 24px;
+    justify-content: center;
+}
+
+.heading {
+    padding-top: 0 !important;
+}

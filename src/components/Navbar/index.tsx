@@ -5,7 +5,7 @@ const Navbar = () => {
     return (
         <header>
             <nav>
-                <Link to="/">Movie Search</Link>
+                <Link to="/">Scene Hive</Link>
                  
                  <ul>
                     <Link to="/">Home</Link>

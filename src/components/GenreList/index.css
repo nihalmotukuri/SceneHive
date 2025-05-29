@@ -1,0 +1,8 @@
+.genres-container {
+    max-width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 240px);
+    gap: 24px;
+    justify-content: center;
+    padding-top: 6px;
+}
