@@ -2,11 +2,14 @@ import { useState, useEffect } from 'react'
 import type { Movie, Video } from '../../types'
 import MovieCard from '../../components/MovieCard'
 import './index.css'
+import { FadeLoader } from 'react-spinners'
 
 const Trending = () => {
     const [trending, setTrending] = useState<Movie[]>([])
+    const [tredingLoading, setTrendingLoading] = useState<boolean>(false)
 
     useEffect(() => {
+        setTrendingLoading(true)
 
         const fetchTrailerVideos = async (movieId: number) => {
             const url = `https://api.themoviedb.org/3/movie/${movieId}/videos?api_key=ab2e9fcb961ed38190348436b4044af8`
@@ -43,8 +46,10 @@ const Trending = () => {
                 setTrending(validMovies)
             } catch (err) {
                 console.error(err)
+            } finally {
+                setTrendingLoading(false)
             }
-        } 
+        }
 
         fetchTrending()
     }, [])
@@ -52,9 +57,24 @@ const Trending = () => {
     return (
         <section>
             <h1 className="heading">TRENDING</h1>
-            <div className="trending-container">
-                {trending.map(movie => <MovieCard key={movie.id} movie={movie} />)}
-            </div>
+            {tredingLoading
+                ? <div className='trending-loader'>
+                    <FadeLoader
+                        loading={tredingLoading}
+                        color="grey"
+                        cssOverride={{
+                            display: 'block',
+                            margin: '100px auto',
+                            borderColor: '#007bff',
+                        }}
+                        aria-label="Loading Spinner"
+                        data-testid="loader" />
+                </div>
+                : <div className="trending-container">
+                    {trending.map(movie => <MovieCard key={movie.id} movie={movie} />)}
+                </div>
+            }
+
         </section>
     )
 }

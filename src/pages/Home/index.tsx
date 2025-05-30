@@ -9,7 +9,7 @@ const Home = () => {
                 muted 
                 loop 
                 disablePictureInPicture >
-                <source src="/trailer1.mp4">
+                <source src="/trailer.mp4">
                 </source>
             </video>
         </section>
