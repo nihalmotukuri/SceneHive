@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
+import ReactPlayer from 'react-player';
 import './index.css'
 
 const movieGenres: Record<number, string> = {
@@ -81,13 +82,7 @@ const MovieDetails = () => {
                     </div>
                 </div>
 
-                <iframe
-                    style={{width: '100%', aspectRatio: '16/9', marginTop: '54px'}}
-                    src={`https://www.youtube.com/embed/${movie.trailerKey}`}
-                    title="YouTube video player"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                ></iframe>
+                <ReactPlayer className='trailer-player' url={`https://www.youtube.com/embed/${movie.trailerKey}`} />
             </div>
         </section>
     )

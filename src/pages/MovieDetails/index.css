@@ -68,3 +68,10 @@
 .stream-on p {
     margin-right: 28px;
 }
+
+.trailer-player {
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 16/9;
+    margin-top: 54px;
+}

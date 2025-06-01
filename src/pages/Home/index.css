@@ -3,9 +3,17 @@
     height: 100vh;
     overflow: hidden;
     display: flex;
+    flex-direction: column;
     align-items: center;
+    padding: 60px 60px;
 }
 
 .trailer {
     width: 100%;
+}
+
+.slider-container {
+    max-width: 1400px;
+    width: 100%;
+    margin-top: 24px;
 }
