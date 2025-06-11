@@ -1,0 +1,101 @@
+.movie-card {
+    width: 240px;
+    height: 330px;
+    border: 4px solid white;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    position: relative;
+    margin: auto;
+}
+
+.movie-card img {
+    width: 100% !important;
+    transition: all .2s;
+    text-align: center;
+}
+
+/* .movie-card:hover img {
+    scale: 1.1;
+} */
+
+.mc-overlay {
+    display: none !important;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.44) 40%, black 80%);
+    padding: 12px;
+    transition: all .4s;
+    justify-content: unset !important;
+    align-items: center;
+    flex-direction: column;
+}
+
+.movie-card:hover .mc-overlay {
+    display: flex !important;
+}
+
+.mc-title {
+    color: white;
+    font-size: 20px;
+    text-align: center;
+    margin-top: 80%;
+    letter-spacing: 2px;
+}
+
+.mc-rating {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background-color: yellow;
+    padding: 4px 6px;
+    color: black;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.movie-det-btn {
+    background-color: yellow;
+    font-size: 10px;
+    font-weight: 600;
+    padding: 6px 12px;
+    cursor: pointer;
+    position: absolute;
+    bottom: 20px;
+    border: 1px solid black;
+}
+
+/* .movie-overview {
+    margin: 28px 54px;
+    font-size: 24px;
+    color: grey;
+    border: 2px solid grey;
+    padding: 18px 22px;
+} */
+
+/* .fav-icon {
+    display: none;
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    font-size: 32px;
+    background-color: rgba(38, 38, 38, 0.475);
+    height: 38px;
+    width: 38px;
+    padding: 0 10px;
+    padding-bottom: 24px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.movie-card:hover .fav-icon {
+    display: block;
+}
+
+.fav-icon:hover {
+    color: red;
+} */

@@ -1,0 +1,22 @@
+main {
+    min-height: 100vh;
+    width: 100%;
+    max-width: 1400px;
+    padding: 60px 0;
+}
+
+.section-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.section-header h1 {
+    color: #fff;
+    letter-spacing: 2px;
+}
+
+.section-header a {
+    cursor: pointer;
+}

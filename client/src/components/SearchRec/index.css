@@ -1,0 +1,55 @@
+.search-rec {
+    width: 360px;
+    position: absolute;
+    z-index: 10;
+    top: 80px;
+    background-color: rgba(0, 0, 0, 0.41);
+    backdrop-filter: blur(10px) !important;
+    border: 2px solid rgb(167, 167, 167);
+    border-radius: 12px;
+}
+
+.search-list {
+    height: 100%;
+    width: 100%;
+    padding: 18px 30px;
+    list-style-type: none;
+    display: block;
+}
+
+.search-list li {
+    padding: 8px;
+    width: 100%;
+    /* border-bottom: ; */
+    cursor: pointer;
+    margin-bottom: 2px;
+    transition: all .2s;
+    color: white;
+    display: flex;
+    align-items: center;
+}
+
+.search-list li div {
+    min-height: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding-left: 12px;
+}
+
+.search-list li div h4 {
+    margin-bottom: 6px;
+    line-height: 18px;
+    font-size: 16px;
+}
+
+.search-list li div p {
+    color: rgb(168, 168, 168);
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.search-list li:hover {
+    background-color: rgba(255, 255, 255, 0.237);
+}

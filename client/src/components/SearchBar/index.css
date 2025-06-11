@@ -1,0 +1,40 @@
+.search-component {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 260px;
+    position: relative;
+}
+
+.search-bar {
+    width: 260px;
+    border-radius: 6px;
+    border: 1px solid grey;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.search-bar input {
+    width: 100%;
+    background-color: transparent;
+    outline: 0;
+    border: 0;
+    padding: 6px 16px;
+    color: white;
+}
+
+.submit-search {
+    background-color: transparent;
+    border: 0;
+    outline: 0;
+    cursor: pointer;
+    height: 100%;
+    width: 50px;
+    padding: 6px 0;
+}
+.search-icon {
+    color: white;
+    font-size: 18px;
+}
+

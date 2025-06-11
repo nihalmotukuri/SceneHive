@@ -1,0 +1,120 @@
+.md-page {
+    padding: 120px 54px;
+    padding-bottom: 60px;
+    position: relative;
+}
+
+.backdrop-wrap {
+    position: absolute;
+    top: 90px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    width: 100%;
+    z-index: -1;
+    height: 350px;
+    max-width: 1264px;
+    padding: 0 32px;
+}
+
+.backdrop {
+    overflow: hidden;
+    display: flex;
+    align-items: flex-start;
+    border-radius: 18px;
+    height: 100%;
+}
+
+.backdrop img {
+    width: 100%;
+    filter: blur(6px);
+}
+
+.wrap {
+    width: 100%;
+    height: 100%;
+    max-width: 1111px;
+    margin: auto;
+}
+
+.movie-details {
+    display: flex;
+    top: 0;
+    left: 0;
+}
+
+.movie-poster {
+    height: 360px;
+    flex-shrink: 0;
+    border: 5px solid white;
+    border-radius: 24px;
+    overflow: hidden;
+    margin-left: 50px;
+}
+
+.movie-details div {
+    width: 100%;
+    padding: 16px;
+    padding-top: 6px;
+    padding-left: 60px;
+    color: white;
+}
+
+.movie-details div h1 {
+    font-size: 48px;
+    font-weight: 400;
+    letter-spacing: 2px;
+    line-height: 44px;
+}
+
+.overview {
+    text-align: left;
+    font-size: 14px;
+    letter-spacing: 0;
+    padding: 10px 12px;
+}
+
+.year {
+    margin-top: 10px;
+    font-size: 22px;
+    text-align: left;
+    font-weight: 600;
+}
+
+.genres {
+    font-size: 22px;
+    text-align: left;
+    font-weight: 600;
+
+}
+
+.rating {
+    margin-top: 14px;
+    font-size: 22px;
+    text-align: left;
+    font-weight: 600;
+}
+
+.star {
+    padding-right: 10px;
+    color: #6ac045;
+}
+
+.stream-on {
+    display: flex;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    padding-left: 0 !important;
+    margin-bottom: 16px;
+}
+
+.stream-on p {
+    margin-right: 12px;
+}
+
+.trailer-player {
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 16/9;
+    margin-top: 54px;
+}
