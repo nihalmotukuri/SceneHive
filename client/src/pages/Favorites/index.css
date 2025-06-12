@@ -1,0 +1,29 @@
+.favorites-page {
+    width: 100%;
+    min-height: 100vh;
+    padding-top: 70px;
+    padding-bottom: 60px;
+}
+
+.favorites-container {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 240px);
+    justify-content: center;
+    gap: 24px;
+}
+
+.heading {
+    text-align: center;
+    color: #fff;
+    letter-spacing: 2px;
+}
+
+.favorites-loader {
+    width: 100%;
+    height: 360px;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

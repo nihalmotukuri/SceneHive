@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom'
+import { IoIosHeart } from "react-icons/io";
 import './index.css'
 
 
@@ -35,6 +36,9 @@ const MovieCard = ({ movie }) => {
                     className='movie-det-btn'  
                     onClick={() => getMovieDetails(movie.id)} >VIEW MORE</button>
             </div>
+            
+            <IoIosHeart 
+                className="fav-icon" />
             {/* <div
                 className="fav-icon"
                 // onClick={onFavorite}

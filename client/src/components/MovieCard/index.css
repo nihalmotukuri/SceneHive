@@ -11,13 +11,13 @@
 
 .movie-card img {
     width: 100% !important;
-    transition: all .2s;
+    transition: all .25s;
     text-align: center;
 }
 
-/* .movie-card:hover img {
+.movie-card:hover img {
     scale: 1.1;
-} */
+}
 
 .mc-overlay {
     display: none !important;
@@ -69,33 +69,23 @@
     border: 1px solid black;
 }
 
-/* .movie-overview {
-    margin: 28px 54px;
-    font-size: 24px;
-    color: grey;
-    border: 2px solid grey;
-    padding: 18px 22px;
-} */
-
-/* .fav-icon {
-    display: none;
+.fav-icon {
+    display: none !important;
     position: absolute;
-    top: 8px;
-    right: 8px;
-    font-size: 32px;
-    background-color: rgba(38, 38, 38, 0.475);
-    height: 38px;
-    width: 38px;
+    top: 277px;
+    right: 18px;
+    font-size: 48px;
     padding: 0 10px;
     padding-bottom: 24px;
     border-radius: 50%;
     cursor: pointer;
+    color: rgba(250, 235, 215, 0.448);
 }
 
 .movie-card:hover .fav-icon {
-    display: block;
+    display: block !important;
 }
 
 .fav-icon:hover {
     color: red;
-} */
+}

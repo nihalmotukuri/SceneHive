@@ -1,0 +1,102 @@
+.login-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-form {
+    padding: 36px 54px;
+    border: 1px solid rgba(128, 128, 128, 0.537);
+    border-radius: 24px;
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo {
+    font-family: "Cormorant Garamond", serif;
+    color: grey;
+    text-align: center;
+    margin-bottom: 32px;
+    letter-spacing: 1.5px;
+}
+
+
+.login-form div {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 28px;
+    width: 100%;
+    position: relative;
+}
+
+.login-form div label {
+    font-size: 18px;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    margin-left: 6px;
+}
+
+.login-form div input {
+    background-color: transparent;
+    border: 1px solid rgba(128, 128, 128, 0.537);
+    border-radius: 4px;
+    font-size: 16px;
+    padding: 10px 16px;
+    color: rgba(255, 255, 255, 0.677);
+    outline: none;
+    letter-spacing: 1px;
+}
+
+.field-err {
+    position: absolute;
+    bottom: 0;
+    color: #d33;
+}
+
+.login-form div input:focus {
+    background-color: rgba(128, 128, 128, 0.159);
+    border-color: rgb(255, 255, 255);
+}
+
+.login-form p {
+    letter-spacing: 0;
+    font-size: 16px;
+    margin-bottom: 22px;
+}
+
+.login-form p a {
+    letter-spacing: 1px;
+    font-size: 16px;
+    margin: 0;
+    color: rgb(168, 109, 224);
+}
+
+.login-form p a:hover {
+    color: rgb(119, 56, 178);
+}
+
+.login-form button {
+    padding: 10px 16px;
+    width: 130px;
+    margin: auto;
+    cursor: pointer;
+    background-color: blueviolet;
+    border: 0;
+    color: white;
+    border-radius: 4px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    font-size: 14px;
+    transition: all .1s;
+}
+
+.login-form button:hover {
+    background-color: rgb(80, 19, 136);
+}
+
+.error-msg {
+    color: #d33;
+}
