@@ -11,6 +11,7 @@ const Favorites = () => {
     return (
         <>
             <Header />
+            
             <section className='favorites-page'>
                 <h1 className="heading">FAVORITES</h1>
 

@@ -5,7 +5,9 @@ import mongoose from 'mongoose'
 import MoviesRoutes from './routes/movie.route.js'
 
 dotenv.config()
+
 const app = express()
+const PORT = process.env.PORT || 5000
 
 app.use(cors())
 app.use(express.json())
@@ -21,7 +23,7 @@ mongoose
     .then(() => {
         console.log("Connect to database")
         app.listen(process.env.PORT, () => {
-            console.log(`Server is running at ${process.env.PORT}`)
+            console.log(`Server is running at ${PORT}`)
         })
     })
     .catch(err => console.error(err))

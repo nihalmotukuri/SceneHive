@@ -37,7 +37,7 @@ const Signup = () => {
 
         const userLogin = async () => {
             const userCredentials = { name, email, password }
-            const url = `http://localhost:5000/signup`
+            const url = `https://scenehive.onrender.com/api/signup`
             const options = {
                 method: "POST",
                 headers: {

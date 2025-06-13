@@ -1,7 +1,9 @@
+import jwt from 'jsonwebtoken'
+
 export const verifyToken = (req, res, next) => {
     const authHeader = req.headers.authorization
 
-    if (!authHeader.startsWith('Bearer ')) {
+    if (!authHeader || !authHeader.startsWith('Bearer ')) {
         return res.status(403).json({ message: "Access denied: No token provided" })
     }
 

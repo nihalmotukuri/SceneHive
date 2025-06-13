@@ -21,7 +21,7 @@ function App() {
     setFavoritesLoading(true)
 
     const fetchFavorites = async () => {
-      const url = `http://localhost:5000/favorites`
+      const url = `https://scenehive.onrender.com/api/favorites`
       const token = Cookies.get('jwt_token')
       const options = {
         method: 'GET',
@@ -51,7 +51,7 @@ function App() {
   }
 
   const addToFavorites = async (movie) => {
-    const url = `http://localhost:5000/favorites`
+    const url = `https://scenehive.onrender.com/api/favorites`
     const token = Cookies.get('jwt_token')
     const alreadyFAv = isFavorite(movie.id) ? "DELETE" : "POST"
 
