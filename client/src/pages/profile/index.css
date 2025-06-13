@@ -1,0 +1,15 @@
+.profile-settings {
+    border: 1px solid #454545;
+    max-width: 600px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 42px 0;
+}
+
+.profile-settings h3 {
+    padding: 0 !important;
+    margin-bottom: 24px;
+}

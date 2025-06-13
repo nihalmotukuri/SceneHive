@@ -24,7 +24,7 @@ a {
     font-size: 18px;
     margin: 0 12px;
     text-decoration: none;
-    color: #bcbbbb;
+    color: #969696;
     letter-spacing: 1px;
 }
 
@@ -41,5 +41,4 @@ ul {
 
 .active-link {
     color: #fff;
-    border-bottom: 3px solid rgb(80, 19, 136);
 }

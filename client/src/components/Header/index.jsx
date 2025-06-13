@@ -13,7 +13,8 @@ const Header = () => {
                         width: "250px",
                         fontFamily: "\"Cormorant Garamond\", serif",
                         fontSize: '24px',
-                        letterSpacing: "1.5px"
+                        letterSpacing: "1.5px",
+                        border: "none"
                     }}>
                     SceneHive
                 </Link>

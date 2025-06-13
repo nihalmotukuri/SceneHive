@@ -8,7 +8,7 @@ import MovieDetails from './pages/MovieDetails'
 import Login from './pages/Login'
 import Signup from './pages/Signup'
 import Favorites from './pages/Favorites'
-import Profile from './pages/profile'
+import Profile from './pages/Profile'
 import ProtectedRoute from './components/ProtectedRoute'
 import FavoritesContext from './contexts/FavoritesContext'
 import './App.css'
@@ -33,6 +33,7 @@ function App() {
       try {
         const res = await fetch(url, options)
         const data = await res.json()
+        console.log(data)
         setFavorites(data.favorites)
       } catch (err) {
         console.error(err)
@@ -47,7 +48,9 @@ function App() {
   console.log(favorites)
 
   const isFavorite = (movieId) => {
-    return favorites.some(fav => fav.id === movieId)
+    if (favorites !== undefined) {
+      return favorites.some(fav => fav.id === movieId)
+    }
   }
 
   const addToFavorites = async (movie) => {

@@ -65,6 +65,11 @@ router.get('/favorites', verifyToken, async (req, res) => {
 
     try {
         const favoritesList = await Favorites.findOne({ userId })
+
+        if (!favoritesList) {
+            return res.status(200).json({ favorites: [] });
+        }
+        
         res.status(200).json({ favorites: favoritesList.favorites})
     } catch (err) {
         res.status(500).json({ message: err.message })
