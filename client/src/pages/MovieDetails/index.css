@@ -49,6 +49,37 @@
     border-radius: 24px;
     overflow: hidden;
     margin-left: 50px;
+    padding: 0 !important;
+    width: auto !important;
+    position: relative;
+}
+
+.movie-poster:hover .md-poster-overlay {
+    display: flex;
+}
+
+.md-poster-overlay {
+    display: none;
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.44) 40%, black 80%);
+    padding: 0 !important;
+    justify-content: center;
+}
+
+.atf-btn {
+    background-color: yellow;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 6px 12px;
+    cursor: pointer;
+    position: absolute;
+    bottom: 20px;
+    border: 1px solid black;
 }
 
 .movie-details div {

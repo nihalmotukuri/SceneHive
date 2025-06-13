@@ -1,11 +1,13 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, use } from 'react'
 import { useParams } from 'react-router-dom'
 import ReactPlayer from 'react-player';
 import Header from '../../components/Header'
 import { FadeLoader } from 'react-spinners'
+import FavoritesContext from '../../contexts/FavoritesContext';
 import './index.css'
 
 const MovieDetails = () => {
+    const { addToFavorites, isFavorite } = use(FavoritesContext)
     const pathParam = useParams()
     const movieId = pathParam.movieId
     const [movie, setMovie] = useState(null)
@@ -90,8 +92,10 @@ const MovieDetails = () => {
                     data-testid="loader" />
             </div>
         )
-        
+
         const movieRating = movie.vote_average.toFixed(1)
+
+        const overlayBtnText = isFavorite(movie.id) ? "Remove from Favorites" : "Add to Favorites";
 
         return (
             <>
@@ -103,11 +107,21 @@ const MovieDetails = () => {
 
                 <div className="wrap">
                     <div className="movie-details">
-                        <img
-                            className="movie-poster"
-                            src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`}
-                            alt={movie.title}
-                        />
+                        <div className="movie-poster">
+                            <img
+                                style={{ height: "100%" }}
+                                src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`}
+                                alt={movie.title}
+                            />
+
+                            <div className='md-poster-overlay'>
+                                <button
+                                    className='atf-btn'
+                                    onClick={() => addToFavorites(movie)}>
+                                    {overlayBtnText}
+                                </button>
+                            </div>
+                        </div>
 
                         <div>
                             <h1><strong>{movie.title}</strong></h1>

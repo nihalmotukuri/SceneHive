@@ -2,8 +2,9 @@ import React from "react";
 
 const FavoritesContext = React.createContext({
     favorites: [],
+    favoritesLoading: false,
     addToFavorites: () => {},
-    isFavorites: () => {},
+    isFavorite: () => {},
 })
 
 export default FavoritesContext

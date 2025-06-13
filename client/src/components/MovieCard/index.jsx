@@ -1,5 +1,7 @@
 import { useNavigate } from 'react-router-dom'
 import { IoIosHeart } from "react-icons/io";
+import FavoritesContext from '../../contexts/FavoritesContext';
+import { use } from 'react'
 import './index.css'
 
 
@@ -10,10 +12,13 @@ const MovieCard = ({ movie }) => {
     // const isFavorite = movieContext?.isFavorite
     // const favColor = isFavorite && isFavorite(movie.id) ? "red" : "white"
 
-    // const onFavorite = (e) => {
-    //     e.stopPropagation()
-    //     return addToFavorites && addToFavorites(movie)
-    // }
+    const { addToFavorites, isFavorite } = use(FavoritesContext)
+    const favColor = isFavorite && isFavorite(movie.id) ? "red" : "rgba(250, 235, 215, 0.448)"
+
+    const onFavorite = (e) => {
+        e.stopPropagation()
+        return addToFavorites(movie)
+    }
 
     const getMovieDetails = (movieId) => {
         navigate(`/movie/${movieId}`)
@@ -38,7 +43,9 @@ const MovieCard = ({ movie }) => {
             </div>
             
             <IoIosHeart 
-                className="fav-icon" />
+                className="fav-icon"
+                onClick={onFavorite}
+                style={{color: favColor}} />
             {/* <div
                 className="fav-icon"
                 // onClick={onFavorite}

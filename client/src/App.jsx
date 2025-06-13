@@ -1,3 +1,5 @@
+import { useState, useEffect } from 'react'
+import Cookies from 'js-cookie'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Home from './pages/Home'
 import SearchMovies from './pages/SearchMovies'
@@ -6,16 +8,73 @@ import MovieDetails from './pages/MovieDetails'
 import Login from './pages/Login'
 import Signup from './pages/Signup'
 import Favorites from './pages/Favorites'
+import Profile from './pages/profile'
 import ProtectedRoute from './components/ProtectedRoute'
-// import FavoritesContext from './contexts/FavoritesContext'
+import FavoritesContext from './contexts/FavoritesContext'
 import './App.css'
 
 function App() {
-  
+  const [favorites, setFavorites] = useState([])
+  const [favoritesLoading, setFavoritesLoading] = useState(false)
+
+  useEffect(() => {
+    setFavoritesLoading(true)
+
+    const fetchFavorites = async () => {
+      const url = `http://localhost:5000/favorites`
+      const token = Cookies.get('jwt_token')
+      const options = {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+        }
+      }
+      try {
+        const res = await fetch(url, options)
+        const data = await res.json()
+        setFavorites(data.favorites)
+      } catch (err) {
+        console.error(err)
+      } finally {
+        setFavoritesLoading(false)
+      }
+    }
+
+    fetchFavorites()
+  }, [])
+
+  console.log(favorites)
+
+  const isFavorite = (movieId) => {
+    return favorites.some(fav => fav.id === movieId)
+  }
+
+  const addToFavorites = async (movie) => {
+    const url = `http://localhost:5000/favorites`
+    const token = Cookies.get('jwt_token')
+    const alreadyFAv = isFavorite(movie.id) ? "DELETE" : "POST"
+
+    const options = {
+      method: alreadyFAv,
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`
+      },
+      body: JSON.stringify(movie)
+    }
+    try {
+      const res = await fetch(url, options)
+      const data = await res.json()
+      setFavorites(data.favorites)
+    } catch (err) {
+      console.error(err)
+    }
+  }
 
   return (
     <BrowserRouter>
-      {/* <FavoritesContext value={}> */}
+      <FavoritesContext value={{ favorites, favoritesLoading, addToFavorites, isFavorite }}>
         <Routes>
           <Route path="/" element={
             <ProtectedRoute>
@@ -36,6 +95,10 @@ function App() {
             <ProtectedRoute>
               <MovieDetails />
             </ProtectedRoute>} />
+          <Route path="/profile" element={
+            <ProtectedRoute>
+              <Profile />
+            </ProtectedRoute>} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/favorites" element={
@@ -45,7 +108,7 @@ function App() {
           } />
           <Route path="/*" />
         </Routes>
-      {/* </FavoritesContext> */}
+      </FavoritesContext>
     </BrowserRouter>
   )
 }

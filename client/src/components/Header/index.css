@@ -30,10 +30,44 @@ a {
 
 a:hover {
     color: #fff;
+    border-bottom: 3px solid rgb(80, 19, 136);
 }
 
 ul {
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
+
+.active-link {
+    color: #fff;
+    border-bottom: 2px solid rgb(80, 19, 136);
+}
+
+.user-icon, .user-icon-ac {
+    border: 0 !important;
+}
+
+.user-icon svg {
+    padding: 4px;
+    height: auto;
+    width: auto;
+    margin-top: 5px;
+    margin-left: 8px;
+    border-radius: 4px;
+    font-size: 24px;
+    transition: all .2s;
+}
+
+.user-icon-ac svg, .user-icon:hover svg {
+    color: black;
+    background-color: white;
+    padding: 4px;
+    height: auto;
+    width: auto;
+    margin-top: 5px;
+    margin-left: 8px;
+    border-radius: 4px;
+    font-size: 24px;
+    transition: all .2s;
 }

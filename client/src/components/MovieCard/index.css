@@ -73,10 +73,8 @@
     display: none !important;
     position: absolute;
     top: 277px;
-    right: 18px;
-    font-size: 48px;
-    padding: 0 10px;
-    padding-bottom: 24px;
+    right: 32px;
+    font-size: 24px;
     border-radius: 50%;
     cursor: pointer;
     color: rgba(250, 235, 215, 0.448);
@@ -87,5 +85,5 @@
 }
 
 .fav-icon:hover {
-    color: red;
+    color: red !important;
 }
