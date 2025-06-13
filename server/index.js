@@ -17,7 +17,7 @@ app.get('/', (req, res) => {
 })
 
 mongoose
-    .connect(process.env.MONGODB_URL)
+    .connect("mongodb+srv://nihalmotukuri:UnekkWki65Zb0glh@scenehive-api.wou5okp.mongodb.net/?retryWrites=true&w=majority&appName=scenehive-api")
     .then(() => {
         console.log("Connect to database")
         app.listen(process.env.PORT, () => {
