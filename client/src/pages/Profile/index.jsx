@@ -108,7 +108,7 @@ const Profile = () => {
         toast.warning("This action cannot be undone.")
 
         try {
-            const res = await fetch('http://localhost:5000/api/user', {
+            const res = await fetch('https://scenehive.onrender.com/api/user', {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json',
