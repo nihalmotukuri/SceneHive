@@ -1,3 +1,10 @@
+.profile-section {
+    width: 100%;
+    min-height: 100vh;
+    padding-top: 70px;
+    padding-bottom: 60px;
+}
+
 .profile-settings {
     border: 1px solid #454545;
     max-width: 600px;
@@ -12,4 +19,79 @@
 .profile-settings h3 {
     padding: 0 !important;
     margin-bottom: 24px;
+    font-size: 20px;
+}
+
+.profile-settings div {
+    margin-bottom: 24px;
+}
+
+.profile-settings div label {
+    margin-left: 20px;
+    font-size: 14px;
+}
+
+.profile-settings div div{
+    width: 360px;
+    padding: 10px 16px;
+    padding-right: 0;
+    border: 1px solid #454545;
+    display: flex;
+    margin-top: 6px;
+}
+
+.profile-settings div div input {
+    background-color: transparent;
+    color: grey;
+    outline: none;
+    border: none;
+    width: 100%;
+    padding: 4px;
+    font-size: 14px;
+}
+
+.profile-settings div div button {
+    color: white;
+    background-color: black;
+    border: none;
+    border-left: 1px solid white;
+    padding: 0 12px;
+    cursor: pointer;    
+}
+
+.logout-cont {
+    max-width: 600px;
+    margin: auto;
+    padding: 42px 0;
+}
+
+.logout-cont button {
+    width: 110px;
+    font-size: 16px;
+    background-color: transparent;
+    color: grey;
+    border: 1px solid #454545;
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 12px;
+    cursor: pointer;
+}
+
+.logout-cont button:hover {
+    background-color: rgba(128, 128, 128, 0.252);
+    color: white;
+}
+
+.delete-btn {
+    padding: 8px 16px;
+    border-radius: 0;
+    background-color: rgb(253, 74, 74);
+    color: white;
+    border: 0;
+    cursor: pointer;
+    margin-left: auto;
+}
+
+.delete-btn:hover {
+    background-color: rgb(130, 41, 41);
 }

@@ -11,6 +11,8 @@ import Favorites from './pages/Favorites'
 import Profile from './pages/Profile'
 import ProtectedRoute from './components/ProtectedRoute'
 import FavoritesContext from './contexts/FavoritesContext'
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 import './App.css'
 
 function App() {
@@ -111,6 +113,12 @@ function App() {
           } />
           <Route path="/*" />
         </Routes>
+        <ToastContainer 
+          position="bottom-right" 
+          autoClose={1000}
+          hideProgressBar={true}
+          theme="dark"
+          closeOnClick={true} />
       </FavoritesContext>
     </BrowserRouter>
   )

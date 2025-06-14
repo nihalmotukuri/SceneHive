@@ -19,7 +19,11 @@ app.get('/', (req, res) => {
 })
 
 mongoose
-    .connect("mongodb+srv://nihalmotukuri:UnekkWki65Zb0glh@scenehive-api.wou5okp.mongodb.net/?retryWrites=true&w=majority&appName=scenehive-api")
+    .connect("mongodb+srv://nihalmotukuri:UnekkWki65Zb0glh@scenehive-api.wou5okp.mongodb.net/?retryWrites=true&w=majority&appName=scenehive-api", {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+        autoIndex: false
+    })
     .then(() => {
         console.log("Connect to database")
         app.listen(process.env.PORT, () => {

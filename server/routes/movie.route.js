@@ -7,6 +7,50 @@ import { verifyToken } from '../middlewares/movie.middleware.js'
 
 const router = express.Router()
 
+router.get('/user', verifyToken, async (req, res) => {
+    const userId = req.user.id
+
+    try {
+        const user = await User.findOne({ _id: userId })
+        if (!user) return res.status(404).json({ message: "User not found" })
+
+        const { name, email } = user
+        res.status(200).json({ userId, name, email })
+    } catch (err) {
+        res.status(500).json({ message: err.message })
+    }
+})
+
+router.put('/user', verifyToken, async (req, res) => {
+    const userId = req.user.id
+    const { name, email } = req.body
+    const updatedUserCred = { name, email }
+
+    try {
+        const user = await User.findByIdAndUpdate(userId, updatedUserCred)
+        if (!user) return res.status(404).json({ message: "User not found" })
+
+        const updatedUser = await User.findById(userId)
+
+        const { name, email } = updatedUser
+        res.status(200).json({ userId, name, email })
+    } catch (err) {
+        res.status(500).json({ message: err.message })
+    }
+})
+
+router.delete('/user', verifyToken, async (req, res) => {
+    const userId = req.user.id 
+
+    try {
+        await User.findByIdAndDelete(userId)
+        await Favorites.findOneAndDelete({ userId })
+        res.status(200).json({message: "User deleted successfully"})
+    } catch (err) {
+        res.status(500).json({message: err.message})
+    }
+})
+
 router.post('/signup', async (req, res) => {
     const { name, email, password } = req.body
 
@@ -69,8 +113,8 @@ router.get('/favorites', verifyToken, async (req, res) => {
         if (!favoritesList) {
             return res.status(200).json({ favorites: [] });
         }
-        
-        res.status(200).json({ favorites: favoritesList.favorites})
+
+        res.status(200).json({ favorites: favoritesList.favorites })
     } catch (err) {
         res.status(500).json({ message: err.message })
     }

@@ -22,3 +22,7 @@ main {
 .section-header a {
     cursor: pointer;
 }
+
+.heading {
+    font-size: 24px;
+}
