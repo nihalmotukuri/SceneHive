@@ -1,6 +1,8 @@
-import { useState } from 'react'
+import { useState, use } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import Cookies from 'js-cookie'
+import { IoEyeOutline, IoEyeOffOutline } from "react-icons/io5"
+import FavoritesContext from '../../contexts/FavoritesContext'
 import './index.css'
 
 const Login = () => {
@@ -8,6 +10,9 @@ const Login = () => {
     const [password, setPassword] = useState('')
     const navigate = useNavigate()
     const [errMsg, setErrMsg] = useState(null)
+    const [showPassword, setShowPassword] = useState(false)
+    const [passwordFocus, setPasswordFocus] = useState(false)
+    const { setToken } = use(FavoritesContext)
 
     const handleLogin = (e) => {
         e.preventDefault()
@@ -30,6 +35,7 @@ const Login = () => {
                 const data = await res.json()
                 console.log(data)
                 const jwt = data.token
+                setToken(jwt)
                 if (jwt) {
                     Cookies.set("jwt_token", jwt, { expires: 5 })
                     navigate('/')
@@ -43,6 +49,9 @@ const Login = () => {
 
         userLogin()
     }
+
+    const passwordType = showPassword ? "text" : "password"
+    const passwordStyles = passwordFocus ? "pass-focus" : ""
 
     return (
         <main className="login-page">
@@ -58,13 +67,23 @@ const Login = () => {
                         placeholder='email' />
                 </div>
 
-                <div>
-                    <label htmlFor="password">Password</label>
-                    <input
-                        type="password"
-                        onChange={e => setPassword(e.target.value)}
-                        value={password}
-                        placeholder='password' />
+                <div className='password-cont'>
+                    <label htmlFor="passoword">Password</label>
+
+                    <div className={`password-cont ${passwordStyles}`}>
+                        <input
+                            type={passwordType}
+                            onFocus={() => setPasswordFocus(true)}
+                            onBlur={() => setPasswordFocus(false)}
+                            onChange={e => setPassword(e.target.value)}
+                            value={password}
+                            placeholder='password' />
+
+                        {showPassword
+                            ? <IoEyeOffOutline onClick={() => setShowPassword(!showPassword)} />
+                            : <IoEyeOutline onClick={() => setShowPassword(!showPassword)} />
+                        }
+                    </div>
                 </div>
 
                 <p>Don't have an account? <Link to="/signup">Sign Up</Link></p>

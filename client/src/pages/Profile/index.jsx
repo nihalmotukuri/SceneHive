@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, use } from "react";
 import { useNavigate } from "react-router-dom";
 import Header from "../../components/Header";
 import { FiEdit2 } from "react-icons/fi";
@@ -6,6 +6,7 @@ import './index.css';
 import Cookies from 'js-cookie'
 import { toast } from 'react-toastify'
 import { IoIosLogOut } from "react-icons/io";
+import FavoritesContext from "../../contexts/FavoritesContext";
 
 const Profile = () => {
     const navigate = useNavigate()
@@ -13,7 +14,7 @@ const Profile = () => {
     const [initialEmail, setInitialEmail] = useState('')
     const [username, setUsername] = useState('')
     const [email, setEmail] = useState('')
-    const token = Cookies.get('jwt_token')
+    const { setFavorites, token } = use(FavoritesContext)
 
     useEffect(() => {
         const fetchUserInfo = async () => {
@@ -101,6 +102,7 @@ const Profile = () => {
 
     const onLogout = () => {
         Cookies.remove('jwt_token')
+        setFavorites([])
         navigate('/login')
     }
 
@@ -119,6 +121,7 @@ const Profile = () => {
             if (res.ok) {
                 toast.success("Your account has been deleted.")
                 Cookies.remove('jwt_token')
+                setFavorites([])
                 navigate('/signup')
             } else {
                 toast.error("Failed to delete account. Please try again.")

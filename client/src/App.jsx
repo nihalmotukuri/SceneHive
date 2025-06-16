@@ -16,15 +16,36 @@ import 'react-toastify/dist/ReactToastify.css'
 import './App.css'
 
 function App() {
+  const [token, setToken] = useState(Cookies.get('jwt_token'))
   const [favorites, setFavorites] = useState([])
   const [favoritesLoading, setFavoritesLoading] = useState(false)
 
+  // useEffect(() => {
+  //   const checkTokenInterval = setInterval(() => {
+  //     const currentToken = Cookies.get('jwt_token')
+  //     if (currentToken) {
+  //       setToken(currentToken)
+  //       clearInterval(checkTokenInterval)
+  //     }
+  //   }, 500)
+
+  //   return () => clearInterval(checkTokenInterval)
+  // }, [])
+
   useEffect(() => {
+    const currentToken = Cookies.get('jwt_token');
+    if (currentToken) {
+      setToken(currentToken);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (!token) return setFavorites([])
+
     setFavoritesLoading(true)
 
     const fetchFavorites = async () => {
       const url = `https://scenehive.onrender.com/api/favorites`
-      const token = Cookies.get('jwt_token')
       const options = {
         method: 'GET',
         headers: {
@@ -45,7 +66,7 @@ function App() {
     }
 
     fetchFavorites()
-  }, [])
+  }, [token])
 
   console.log(favorites)
 
@@ -58,10 +79,10 @@ function App() {
   const addToFavorites = async (movie) => {
     const url = `https://scenehive.onrender.com/api/favorites`
     const token = Cookies.get('jwt_token')
-    const alreadyFAv = isFavorite(movie.id) ? "DELETE" : "POST"
+    const alreadyFav = isFavorite(movie.id) ? "DELETE" : "POST"
 
     const options = {
-      method: alreadyFAv,
+      method: alreadyFav,
       headers: {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${token}`
@@ -77,9 +98,19 @@ function App() {
     }
   }
 
+  const value = {
+    favorites,
+    setFavorites,
+    favoritesLoading,
+    addToFavorites,
+    isFavorite,
+    token,
+    setToken
+  }
+
   return (
     <BrowserRouter>
-      <FavoritesContext value={{ favorites, favoritesLoading, addToFavorites, isFavorite }}>
+      <FavoritesContext value={ value }>
         <Routes>
           <Route path="/" element={
             <ProtectedRoute>
@@ -113,8 +144,8 @@ function App() {
           } />
           <Route path="/*" />
         </Routes>
-        <ToastContainer 
-          position="bottom-right" 
+        <ToastContainer
+          position="bottom-right"
           autoClose={1000}
           hideProgressBar={true}
           theme="dark"

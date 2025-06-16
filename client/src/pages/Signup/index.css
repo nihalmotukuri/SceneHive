@@ -95,3 +95,33 @@
     color: #d33;
     letter-spacing: 1px !important;
 }
+
+.password-cont div {
+    flex-direction: row !important;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid rgba(128, 128, 128, 0.537);
+    border-radius: 4px;
+}
+
+.password-cont div input {
+    border: none;
+    width: 100%;
+}
+
+.password-cont div input:focus {
+    background-color: transparent;
+}
+
+.pass-focus {
+    background-color: rgba(128, 128, 128, 0.159);
+    border-color: rgb(255, 255, 255) !important;
+}
+
+.password-cont div svg {
+    color: white;
+    height: 100%;
+    cursor: pointer;
+    margin-right: 14px;
+    font-size: 22px;
+}
