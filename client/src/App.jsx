@@ -20,18 +20,6 @@ function App() {
   const [favorites, setFavorites] = useState([])
   const [favoritesLoading, setFavoritesLoading] = useState(false)
 
-  // useEffect(() => {
-  //   const checkTokenInterval = setInterval(() => {
-  //     const currentToken = Cookies.get('jwt_token')
-  //     if (currentToken) {
-  //       setToken(currentToken)
-  //       clearInterval(checkTokenInterval)
-  //     }
-  //   }, 500)
-
-  //   return () => clearInterval(checkTokenInterval)
-  // }, [])
-
   useEffect(() => {
     const currentToken = Cookies.get('jwt_token');
     if (currentToken) {

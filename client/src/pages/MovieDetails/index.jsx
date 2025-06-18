@@ -4,6 +4,8 @@ import ReactPlayer from 'react-player';
 import Header from '../../components/Header'
 import { FadeLoader } from 'react-spinners'
 import FavoritesContext from '../../contexts/FavoritesContext';
+import { Ring } from 'ldrs/react'
+import 'ldrs/react/Ring.css'
 import './index.css'
 
 const MovieDetails = () => {
@@ -14,6 +16,7 @@ const MovieDetails = () => {
     // const releaseYear = movie.release_date.slice(0, 4)
     // const genres = movie.genre_ids.map((id) => movieGenres[id]).join(' / ')
     const [provider, setProvider] = useState('')
+    const [isReady, setIsReady] = useState(false)
 
     useEffect(() => {
         const getVideos = async (movieId) => {
@@ -139,12 +142,30 @@ const MovieDetails = () => {
                         </div>
                     </div>
 
-                    {movie.trailerKey
-                        ? (<ReactPlayer
-                            className='trailer-player'
-                            url={`https://www.youtube.com/embed/${movie.trailerKey}`} />)
-                        : ''
-                    }
+                    {movie.trailerKey && (
+                        <div>
+                            {!isReady && (
+                                <div className='trailer-player' style={{display: 'flex', justifyContent: 'center',
+                                alignItems: 'center'
+                                }}>
+                                <Ring
+                                    size="40"
+                                    stroke="5"
+                                    bgOpacity="0"
+                                    speed="2"
+                                    color="rgb(80, 19, 136)"
+                                />
+                                </div>
+                            )}
+                            <div style={{ display: isReady ? 'block' : 'none' }}>
+                                <ReactPlayer
+                                    className='trailer-player'
+                                    url={`https://www.youtube.com/watch?v=${movie.trailerKey}`}
+                                    onReady={() => setIsReady(true)}
+                                />
+                            </div>
+                        </div>
+                    )}
                 </div>
             </>
         )
